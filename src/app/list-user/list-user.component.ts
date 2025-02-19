@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../app.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-user',
@@ -10,8 +11,21 @@ import { User } from '../app.component';
 export class ListUserComponent implements OnInit {
   faysal: User[] = [];
 
+  constructor(private router: Router) { } // Dependency injection
+
   ngOnInit(): void {
-    // Retrieve users from local storage
     this.faysal = JSON.parse(localStorage.getItem('users') || '[]');
   }
+
+  editUser(user: User) {
+    this.router.navigate(['/create'], { state: { user } });
+  }
+
+  deleteUser(user: User) {
+    if (confirm('Are you sure you want to delete this user?')) {
+      this.faysal = this.faysal.filter(u => u !== user);
+      localStorage.setItem('users', JSON.stringify(this.faysal));
+    }
+  }
+
 }
