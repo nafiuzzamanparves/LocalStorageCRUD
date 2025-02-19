@@ -8,10 +8,10 @@ import { User } from '../app.component';
   styleUrl: './list-user.component.css'
 })
 export class ListUserComponent implements OnInit {
-  users: User[] = [];
+  faysal: User[] = [];
 
-  ngOnInit() {
+  ngOnInit(): void {
     // Retrieve users from local storage
-    this.users = JSON.parse(localStorage.getItem('users') || '[]');
+    this.faysal = JSON.parse(localStorage.getItem('users') || '[]');
   }
 }
