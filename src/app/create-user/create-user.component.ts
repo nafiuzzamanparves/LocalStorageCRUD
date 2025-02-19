@@ -10,27 +10,24 @@ import { FormsModule } from '@angular/forms';
   standalone: true
 })
 export class CreateUserComponent implements OnInit {
-  user: User = new User('', 0, '', '');
+  u: User = new User('Iqram', 300, '324234234', 'Iqram thake dahakay');
 
   ngOnInit(): void {
-    console.log('CreateUserComponent');
+    // debugger;
+    let string = JSON.stringify(this.u);
+    let obj = JSON.parse(string);
 
-    // write a text to local storage
-    localStorage.setItem('name', 'John');
-    localStorage.setItem('age', '25');
-    localStorage.setItem('phone', '1234567890');
-    localStorage.setItem('address', '123 Main Street');
+    console.log('CreateUserComponent');
   }
 
   onSubmit() {
     let users = JSON.parse(localStorage.getItem('users') || '[]');
     // debugger;
-    users.push(this.user);
+    users.push(this.u);
 
     localStorage.setItem('users', JSON.stringify(users));
 
-    this.user = new User('', 0, '', '');
+    this.u = new User('', 0, '', '');
     alert('User added successfully!');
   }
-
 }
