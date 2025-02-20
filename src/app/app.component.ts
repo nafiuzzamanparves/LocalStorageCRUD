@@ -10,8 +10,6 @@ import { NavbarComponent } from "./navbar/navbar.component";
 })
 export class AppComponent {
   title = 'LocalStorageCRUD';
-
-
 }
 
 export class User {

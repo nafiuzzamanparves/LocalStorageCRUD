@@ -9,12 +9,12 @@ import { Router } from '@angular/router';
   styleUrl: './list-user.component.css'
 })
 export class ListUserComponent implements OnInit {
-  faysal: User[] = [];
+  users: User[] = [];
 
   constructor(private router: Router) { } // Dependency injection
 
   ngOnInit(): void {
-    this.faysal = JSON.parse(localStorage.getItem('users') || '[]');
+    this.users = JSON.parse(localStorage.getItem('users') || '[]'); // Or operator
   }
 
   editUser(user: User) {
@@ -23,8 +23,8 @@ export class ListUserComponent implements OnInit {
 
   deleteUser(user: User) {
     if (confirm('Are you sure you want to delete this user?')) {
-      this.faysal = this.faysal.filter(u => u !== user);
-      localStorage.setItem('users', JSON.stringify(this.faysal));
+      this.users = this.users.filter(i => i !== user);
+      localStorage.setItem('users', JSON.stringify(this.users));
     }
   }
 

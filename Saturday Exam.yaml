@@ -1,0 +1,8 @@
+product id - data type number
+product name - data type string
+product price - data type number
+product quantity - data type number
+purchase date - data type date
+sell date - data type date
+buy from - data type string
+sell to - data type string
