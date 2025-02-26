@@ -1,0 +1,38 @@
+<!-- @for(user of users; track user) {
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ user.name }}</h5>
+            <p class="card-text">Age: {{ user.age }}</p>
+            <p class="card-text">Phone: {{ user.phone }}</p>
+            <p class="card-text">Address: {{ user.address }}</p>
+        </div>
+    </div>
+} -->
+
+<!-- <div class="card" *ngFor="let user of users">
+    <div class="card-body">
+        <h5 class="card-title">{{ user.name }}</h5>
+        <p class="card-text">Age: {{ user.age }}</p>
+        <p class="card-text">Phone: {{ user.phone }}</p>
+        <p class="card-text">Address: {{ user.address }}</p>
+    </div>
+</div> -->
+
+<!-- @if(showName == true) {
+<p>Hello, Angular!</p>
+}@else {
+<p>Goodbye, Angular!</p>
+}
+<button (click)="showName = !showName">Toggle</button> -->
+
+<!-- <p *ngIf="showName == true">Hello, Angular!</p>
+<p *ngIf="showName == false">Goodbye, Angular!</p>
+<button (click)="showName = !showName">Toggle</button> -->
+
+<div [ngStyle]="{ 'background-color': mulloDiteHobe ? 'red' : 'green' }">
+    Chorom mullo dite hobe
+</div>
+
+<hr>
+
+<div [ngClass]="mulloDiteHobe ? 'yes' : 'no'"></div>

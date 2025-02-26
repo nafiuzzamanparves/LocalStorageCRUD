@@ -1,0 +1,15 @@
+.yes {
+    background-color: red;
+}
+
+.yes::after {
+    content: 'Chorom mullo dite hobe';
+}
+
+.no {
+    background-color: green;
+}
+
+.no::after {
+    content: 'Kono mullo dite hobe na';
+}
