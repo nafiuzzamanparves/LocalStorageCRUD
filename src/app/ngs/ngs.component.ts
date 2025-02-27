@@ -3,7 +3,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-ngs',
-  imports: [NgFor, NgIf, CommonModule],
+  // imports: [NgFor, NgIf, CommonModule],
+  imports: [CommonModule],
   templateUrl: './ngs.component.html',
   styleUrl: './ngs.component.css'
 })

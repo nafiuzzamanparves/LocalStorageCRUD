@@ -1,0 +1,32 @@
+<div class="container mt-4">
+    <h2 class="text-center">Teacher CRUD</h2>
+
+    <table class="table table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>schoolName</th>
+                <th>isHeadTeacher</th>
+                <th>assignedSubject</th>
+                <th>salary</th>
+                <th>joiningDate</th>
+                <th>isAggressive</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (teacher of teachers; track teachers) {
+            <tr>
+                <td>{{ teacher.id }}</td>
+                <td>{{ teacher.name }}</td>
+                <td>{{ teacher.schoolName }}</td>
+                <td>{{ teacher.isHeadTeacher }}</td>
+                <td>{{ teacher.assignedSubject }}</td>
+                <td>{{ teacher.salary }}</td>
+                <td>{{ teacher.joiningDate }}</td>
+                <td>{{ teacher.isAggressive }}</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

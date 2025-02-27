@@ -5,6 +5,7 @@ import { ListUserComponent } from './list-user/list-user.component';
 import { FlagComponent } from './flag/flag.component';
 import { NgsComponent } from './ngs/ngs.component';
 import { HarryPotterComponent } from './harry-potter/harry-potter.component';
+import { TeacherComponent } from './teacher/teacher.component';
 
 export const routes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -13,5 +14,6 @@ export const routes: Routes = [
     { path: 'flag', component: FlagComponent },
     { path: 'ngs', component: NgsComponent },
     { path: 'spells', component: HarryPotterComponent },
+    { path: 'teacher', component: TeacherComponent },
     { path: '**', redirectTo: 'home' }
 ];
