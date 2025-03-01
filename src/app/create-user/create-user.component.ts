@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../app.component';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from '../model/user.model';
 
 @Component({
   selector: 'app-create-user',

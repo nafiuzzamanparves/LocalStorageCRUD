@@ -15,20 +15,24 @@
                 <th>Salary</th>
                 <th>Joining Date</th>
                 <th>Aggressive</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             @for (teacher of teachers; track teacher) {
-            <!-- <tr *ngFor="let teacher of teachers; trackBy: trackByTeacher"> -->
             <tr>
                 <td>{{ teacher.id }}</td>
                 <td>{{ teacher.name }}</td>
-                <td>{{ teacher.schoolName }}</td>
+                <td>{{ (teacher.schoolName? teacher.schoolName: '') | shorten:10 }}</td>
                 <td>{{ teacher.isHeadTeacher ? 'Yes' : 'No' }}</td>
                 <td>{{ teacher.assignedSubject }}</td>
-                <td>{{ teacher.salary }}</td>
-                <td>{{ teacher.joiningDate | date:'yyyy-MM-dd' }}</td>
+                <td>{{ (teacher.salary? teacher.salary: 0) | currency:'INR':'symbol' : '' }}</td>
+                <td>{{ (teacher.joiningDate ? teacher.salary: 25/12/2022) | date:'dd/MM/yy' : '' }}</td>
                 <td>{{ teacher.isAggressive ? 'Yes' : 'No' }}</td>
+                <td>
+                    <button class="btn btn-sm btn-warning me-2" (click)="openModal(teacher)">Edit</button>
+                    <button class="btn btn-sm btn-danger" (click)="confirmDelete(teacher.id)">Delete</button>
+                </td>
             </tr>
             }
         </tbody>
@@ -44,7 +48,9 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form (submit)="addTeacher()">
+                <form (submit)="saveTeacher()">
+                    <input type="hidden" [(ngModel)]="newTeacher.id" name="id" />
+
                     <div class="mb-3">
                         <label class="form-label">Name</label>
                         <input type="text" class="form-control" [(ngModel)]="newTeacher.name" name="name" required />
@@ -71,15 +77,15 @@
                     </div>
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" [(ngModel)]="newTeacher.isHeadTeacher"
-                            name="isHeadTeacher" />
+                            name="isHeadTeacher" [checked]="newTeacher.isHeadTeacher" />
                         <label class="form-check-label">Is Head Teacher?</label>
                     </div>
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" [(ngModel)]="newTeacher.isAggressive"
-                            name="isAggressive" />
+                            name="isAggressive" [checked]="newTeacher.isAggressive" />
                         <label class="form-check-label">Is Aggressive?</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" class="btn btn-primary">{{ isEditing ? 'Update' : 'Save' }}</button>
                 </form>
             </div>
         </div>
